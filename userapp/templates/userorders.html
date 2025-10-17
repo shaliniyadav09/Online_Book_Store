@@ -1,0 +1,108 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block user %}
+{% load tz %}
+
+<style>
+    /* Orders Page Container */
+.orders-container {
+  padding: 40px 20px;
+  background: #f9f9fb;
+  min-height: 100vh;
+}
+
+/* Order Card */
+.order-card {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  transition: all 0.3s ease-in-out;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Order Header */
+.order-header {
+  background: linear-gradient(135deg, #000453, #000453);
+  color: #fff;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Table Styling */
+.table {
+  margin: 0;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #f4f4f9;
+  font-weight: 600;
+  color: #444;
+}
+
+.table td {
+  color: #555;
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #f9f9ff;
+  transition: background 0.2s ease-in-out;
+}
+
+/* Empty State */
+.text-muted {
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+</style>
+<div class="orders-container">
+  <h2 class="mb-4 text-center fw-bold">📚 Your Orders</h2>
+
+  {% for order in orderitems %}
+  <div class="order-card shadow-sm">
+    <!-- Order Header -->
+    <div class="order-header d-flex justify-content-between align-items-center">
+      <span>Order ID: <b>#{{order.first.order.id}}</b></span>
+      <span>Ordered At: <b>{{order.first.order.ordered_at | localtime}}</b></span>
+    </div>
+
+    <!-- Order Table -->
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>S.No</th>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Price (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for o in order %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{o.book.title}}</td>
+            <td>{{o.quantity}}</td>
+            <td>{{o.price}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% empty %}
+  <p class="text-center text-muted">You haven’t ordered any book yet 📭</p>
+  {% endfor %}
+</div>
+
+{% endblock %}

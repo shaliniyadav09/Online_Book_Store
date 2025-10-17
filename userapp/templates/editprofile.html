@@ -1,0 +1,122 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block user %}
+<style>
+/* Background */
+.edit-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ece9f7, #f5f7fa);
+  padding: 40px 20px;
+}
+
+/* Card */
+.edit-card {
+  max-width: 550px;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.edit-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Card Header */
+.edit-card .card-header {
+  background: #6c63ff;
+  color: #fff;
+  padding: 15px;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Inputs */
+.input-group-text {
+  background: #f1f1f1;
+  border: none;
+  border-right: 1px solid #ddd;
+  color: #6c63ff;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 6px rgba(108, 99, 255, 0.3);
+}
+
+/* Textarea */
+textarea.form-control {
+  resize: none;
+}
+
+/* Button */
+.btn-save {
+  background: #6c63ff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-save:hover {
+  background: #5a54e8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(108, 99, 255, 0.3);
+}
+
+</style>
+
+<div class="edit-container d-flex align-items-center justify-content-center">
+  <div class="card edit-card shadow-sm p-4">
+    <h3 class="fw-bold text-center text-dark mb-4">Edit Profile</h3>
+
+    <!-- Profile Form -->
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label fw-semibold">Full Name</label>
+        <input type="text" value="{{user.name}}" class="form-control" name="name" id="name">
+      </div>
+
+      <!-- Phone -->
+      <div class="mb-3">
+        <label for="ph" class="form-label fw-semibold">Phone</label>
+        <input type="text" value="{{user.contactno}}" class="form-control" name="conatctno" id="ph">
+      </div>
+
+      <!-- Profile Picture -->
+      <div class="mb-3">
+        <label for="pf" class="form-label fw-semibold">Profile Picture</label>
+        <input type="file" class="form-control" name="profile" id="pf">
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label fw-semibold">Email</label>
+        <input type="text" value="{{user.email}}" class="form-control" name="email" id="email">
+      </div>
+
+      <!-- Address -->
+      <div class="mb-3">
+        <label for="add" class="form-label fw-semibold">Address</label>
+        <textarea class="form-control" name="address" id="add" rows="3">{{user.address}}</textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="d-grid">
+        <a href="{% url 'userprofile' %}"><button type="submit" class="btn btn-save fw-semibold">Save Changes</button></a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block main %}
+<form  method="POST" class="register-card">
+   {% csrf_token%}
+  <h3 class="mb-4 fw-bold">Register Now</h3>
+   {%if messages%} <!--scriptlit-->
+        {% for m in messages%}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+          {{m}} <!-- expression-->
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+  <!-- Full Name -->
+  <div class="mb-3 input-group">
+    <span class="input-group-text"><i class="fa fa-user"></i></span>
+    <input type="text" class="form-control" placeholder="Full name" name="name" required>
+  </div>
+
+  <!-- Email -->
+  <div class="mb-3 input-group">
+    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+    <input type="email" class="form-control" placeholder="Email address" name="email" required>
+  </div>
+
+  <!-- Phone -->
+  <div class="mb-3 input-group">
+    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+    <input type="tel" class="form-control" placeholder="Phone number" name="contactno" required>
+  </div>
+
+
+  <!-- Password -->
+  <div class="mb-3 input-group">
+    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+    <input type="password" class="form-control" placeholder="Password" name="password" required>
+  </div>
+
+  <!-- Confirm Password -->
+  <div class="mb-3 input-group">
+    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+    <input type="password" class="form-control" placeholder="Confirm password" name="cpassword" required>
+  </div>
+
+ 
+
+  <!-- Terms -->
+  <div class="form-check terms mb-3">
+    <input class="form-check-input" type="checkbox" id="termsCheck" required>
+    <label class="form-check-label" for="termsCheck">
+      I Agree To The <a href="#">Terms & Conditions</a>
+    </label>
+  </div>
+
+  <!-- Register Button -->
+  <button type="submit" class="btn btn-register">Register Now</button>
+
+  <!-- Login Link -->
+  <p class="mt-3 text-center">Already Have An Account? <a href="{% url 'login' %}">Login Now</a></p>
+
+</form>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Bootstrap JS & External Scripts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="{% static 'css/stylesheets.css' %}" rel="stylesheet">
+
+
+<script src="{% static 'js/script.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+{% endblock %}

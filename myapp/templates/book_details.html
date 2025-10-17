@@ -1,0 +1,75 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block main %}
+<div class="row mt-5">
+  <div class="col-sm-10 mx-auto">
+    <div class="card shadow-lg border-0 rounded-4 p-4" style="background: #fdfdfd;">
+      <div class="row align-items-center">
+
+        <!-- Book Image -->
+        <div class="col-sm-4 text-center">
+          {% if book.cover_image.url %}
+          <img src="{{book.cover_image.url}}" alt="{{book.title}}" class="img-fluid rounded-3 shadow-sm" style="max-height: 350px;">
+          {% else %}
+          <img src="{% static 'image/dafault_cover.jpeg'%}" alt="{{book.title}}" class="img-fluid rounded-3 shadow-sm" style="max-height: 350px;">
+          {% endif %}
+        </div>
+
+        <!-- Book Details -->
+        <div class="col-sm-8">
+          <h2 class="fw-bold mb-3" style="color:#000453;">{{book.title}}</h2>
+          <p style="font-size:16px; line-height:1.7; color:#555;">
+            <b>Author:</b> {{book.author}} <br>
+            <b>Category:</b> {{book.category.name}} <br>
+            <b>Published Date:</b> {{book.published_date}} <br>
+            <b>Description:</b> <span style="color:#444;">{{book.description}}</span>
+          </p>
+
+          <!-- Price -->
+          <h4 class="mt-3">
+            Get it at <span class="text-success fw-bold">&#8377; {{book.price}}</span>
+            <del class="text-danger">&#8377; {{book.original_price}}</del>
+          </h4>
+
+          <!-- Add to Cart -->
+          <form action="{% url 'addtocart' id=book.id %}" method="post" class="d-flex align-items-center mt-4">
+            {% csrf_token %}
+            <label for="qty" class="fw-semibold me-2">Quantity:</label>
+            <input type="number" value="1" name="quantity" id="qty"
+              class="form-control text-center shadow-sm"
+              style="width:90px; border-radius:8px; border:1px solid #ccc;" onchange="check()">
+
+            <button type="submit" id="addtocart"
+              class="btn ms-3 px-4 py-2 fw-semibold shadow"
+              style="background:#000453; color:white; border-radius:8px; transition:0.3s;">
+              Add To Cart
+            </button>
+          </form>
+
+          <!-- Error Msg -->
+          <span class="text-danger fw-semibold mt-2 d-block" id="msg"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- white space -->
+<div class="whitespace" style="height:50px;width:100% color:white">
+
+</div>
+
+<!-- Script -->
+<script>
+function check(){
+  let qty = parseInt(document.getElementById('qty').value);
+  let stock = parseInt("{{book.stock}}");
+  if (qty > stock){
+    document.getElementById('msg').innerHTML = `Quantity exceeded. Only ${stock} left in stock.`;
+    document.getElementById('addtocart').classList.add('disabled');
+  } else {
+    document.getElementById('msg').innerHTML = "";
+    document.getElementById('addtocart').classList.remove('disabled');
+  }
+}
+</script>
+{% endblock %}
