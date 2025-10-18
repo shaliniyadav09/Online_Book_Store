@@ -1,11 +1,7 @@
-# Upgrade pip and build tools first
-pip>=25.2
-setuptools>=68.0
-wheel>=0.41
-
 # Core packages
 Django==5.0.2
 djangorestframework==3.15.1
 
 # Use a Pillow version that has pre-built wheels for Python 3.12
 Pillow==9.5.0
+
