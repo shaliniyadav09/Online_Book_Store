@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-3v-(j-=^d+l8!o#y^t4zp*2+p5p71_$%ybqnv7)zy*)=^pd9w2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [online-book-store-baku.onrender.com]
+ALLOWED_HOSTS = [obsproject-baku.onrender.com]
 
 
 # Application definition
