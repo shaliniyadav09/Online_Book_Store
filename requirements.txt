@@ -1,7 +1,5 @@
-# Core packages
-Django==5.0.2
-djangorestframework==3.15.1
+Django
+djangorestframework
+Pillow
 
-# Use a Pillow version that has pre-built wheels for Python 3.12
-Pillow==9.5.0
 
