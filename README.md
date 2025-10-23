@@ -88,10 +88,14 @@ obsproject/
 
 ---
 
+
+
+
+```
 🚀 Installation & Setup
 
 1. **Clone the repository**
-```
+```bash
 git clone https://github.com/yourusername/obsproject.git
 cd obsproject
 ```
@@ -107,7 +111,7 @@ venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 ```
 
-4.**Configure environment variables**
+4. **Configure environment variables**
 
 Rename .env.example to .env and add your Stripe API keys and Django secret key.
 ```
@@ -116,7 +120,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-5.**Create superuser**
+5. **Create superuser**
 
 ```
 python manage.py createsuperuser
