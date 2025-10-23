@@ -96,7 +96,7 @@ obsproject/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/obsproject.git
+git clone https://github.com/shaliniyadav09/Online_Book_Store.git
 cd obsproject
 ```
 2. **Create virtual environment**
