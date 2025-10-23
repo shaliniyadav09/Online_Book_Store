@@ -3,6 +3,8 @@ djangorestframework
 Pillow
 gunicorn
 stripe
+whitenoise
+
 
 
 
