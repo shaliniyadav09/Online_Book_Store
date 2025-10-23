@@ -6,55 +6,60 @@ A full-featured **Online Bookstore** built with **Django**. This project include
 
 📁 Folder Structure
 
-
+```
 obsproject/
+│
 ├── manage.py
 ├── db.sqlite3
 ├── .gitignore
 ├── .env
-├── obsproject/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── wsgi.py
-│   └── __pycache__/
-├── adminapp/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── adminappurls.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── views.py
-│   ├── migrations/
-│   ├── static/
-│   └── templates/
-├── userapp/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── userappurls.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── views.py
-│   ├── migrations/
-│   ├── static/
-│   └── templates/
-└── myapp/
-    ├── __init__.py
-    ├── admin.py
-    ├── apps.py
-    ├── models.py
-    ├── myapp_urls.py
-    ├── tests.py
-    ├── views.py
-    ├── migrations/
-    ├── static/
-    └── templates/
+│
+├── obsproject/ # Main project configuration folder
+│ ├── init.py
+│ ├── asgi.py
+│ ├── settings.py # Global Django settings
+│ ├── urls.py # Root URL configuration
+│ ├── wsgi.py
+│ └── pycache/
+│
+├── adminapp/ # Admin-side application
+│ ├── init.py
+│ ├── admin.py
+│ ├── adminappurls.py # Admin app specific URLs
+│ ├── apps.py
+│ ├── models.py
+│ ├── tests.py
+│ ├── views.py
+│ ├── migrations/
+│ ├── static/ # Admin-specific static files (CSS, JS, Images)
+│ └── templates/ # Admin HTML templates
+│
+├── userapp/ # User-side application
+│ ├── init.py
+│ ├── admin.py
+│ ├── userappurls.py # User app specific URLs
+│ ├── apps.py
+│ ├── models.py
+│ ├── tests.py
+│ ├── views.py
+│ ├── migrations/
+│ ├── static/ # User static files
+│ └── templates/ # User HTML templates
+│
+└── myapp/ # Common/shared application
+├── init.py
+├── admin.py
+├── apps.py
+├── models.py
+├── myapp_urls.py # Common/shared URLs
+├── tests.py
+├── views.py
+├── migrations/
+├── static/ # Common static assets
+└── templates/ # Common templates
 
 
-⚙️ Features
+⚙️ Features    
 
 ### Admin Dashboard
 - Add, update, rename, and delete **book categories** and **book details**.
@@ -123,4 +128,8 @@ python manage.py runserver
 
 
 Visit http://127.0.0.1:8000/ to access the application.
+
+
+
+
 
