@@ -94,38 +94,38 @@ obsproject/
 ```bash
 git clone https://github.com/yourusername/obsproject.git
 cd obsproject
-
+```
 Create virtual environment
-
+```
 python -m venv venv
 source venv/bin/activate   # Linux/macOS
 venv\Scripts\activate      # Windows
-
+```
 
 Install dependencies
-
+```
 pip install -r requirements.txt
-
+```
 
 Configure environment variables
 
 Rename .env.example to .env and add your Stripe API keys and Django secret key.
-
+```
 Run migrations
-
 python manage.py makemigrations
 python manage.py migrate
-
+```
 
 Create superuser
 
+```
 python manage.py createsuperuser
-
+```
 
 Start the development server
-
+```
 python manage.py runserver
-
+```
 
 Visit http://127.0.0.1:8000/ to access the application.
 
