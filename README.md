@@ -4,7 +4,9 @@ A full-featured **Online Bookstore** built with **Django**. This project include
 
 ---
 
-## 📁 Folder Structure
+📁 Folder Structure
+
+
 obsproject/
 ├── manage.py
 ├── db.sqlite3
@@ -52,7 +54,7 @@ obsproject/
     └── templates/
 
 
-## ⚙️ Features
+⚙️ Features
 
 ### Admin Dashboard
 - Add, update, rename, and delete **book categories** and **book details**.
