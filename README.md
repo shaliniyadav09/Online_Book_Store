@@ -6,57 +6,51 @@ A full-featured **Online Bookstore** built with **Django**. This project include
 
 ## 📁 Folder Structure
 obsproject/
-│
 ├── manage.py
 ├── db.sqlite3
 ├── .gitignore
 ├── .env
-│
 ├── obsproject/
-│ ├── init.py
-│ ├── asgi.py
-│ ├── settings.py
-│ ├── urls.py
-│ ├── wsgi.py
-│ └── pycache/
-│
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── __pycache__/
 ├── adminapp/
-│ ├── init.py
-│ ├── admin.py
-│ ├── adminappurls.py
-│ ├── apps.py
-│ ├── models.py
-│ ├── tests.py
-│ ├── views.py
-│ ├── migrations/
-│ ├── static/
-│ └── templates/
-│
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── adminappurls.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── views.py
+│   ├── migrations/
+│   ├── static/
+│   └── templates/
 ├── userapp/
-│ ├── init.py
-│ ├── admin.py
-│ ├── userappurls.py
-│ ├── apps.py
-│ ├── models.py
-│ ├── tests.py
-│ ├── views.py
-│ ├── migrations/
-│ ├── static/
-│ └── templates/
-│
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── userappurls.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── views.py
+│   ├── migrations/
+│   ├── static/
+│   └── templates/
 └── myapp/
-├── init.py
-├── admin.py
-├── apps.py
-├── models.py
-├── myapp_urls.py
-├── tests.py
-├── views.py
-├── migrations/
-├── static/
-└── templates/
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── models.py
+    ├── myapp_urls.py
+    ├── tests.py
+    ├── views.py
+    ├── migrations/
+    ├── static/
+    └── templates/
 
----
 
 ## ⚙️ Features
 
@@ -93,6 +87,7 @@ obsproject/
 ```bash
 git clone https://github.com/yourusername/obsproject.git
 cd obsproject
+
 Create virtual environment
 
 python -m venv venv
